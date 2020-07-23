@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Keyboard, Animated, Text, View, TextInput, TouchableOpacity } from "react-native";
-import { styles } from "../../styles/Styles";
+import { styles } from "../styles/Styles";
 
 class Stopwatch extends Component {
 
@@ -214,7 +214,7 @@ class Stopwatch extends Component {
                     autoCompleteType="off"
                     autoCorrect={false}
                     spellCheck={false}
-                    required
+                    textAlign={'center'}
                   />
                 </View>
                 <View style={styles.UserInput}>
@@ -229,12 +229,14 @@ class Stopwatch extends Component {
                     spellCheck={false}
                     maxLength={3}
                     minLength={3}
-                    required
+                    textAlign={'center'}
                   />
                 </View>
+                  {this.state.currency !== "" && this.state.income !== "" && (
                   <TouchableOpacity onPress={this.handleSubmit}>
-                    <Text style={styles.poop} role="poop" aria-label="poop">💩</Text>
+                    <Text style={styles.clock} role="clock" aria-label="clock">⏱️</Text>
                   </TouchableOpacity>
+                  )}
               </Animated.View> 
                 
               <Animated.View 
@@ -250,12 +252,12 @@ class Stopwatch extends Component {
                   <View>
                       {this.state.timerOn === false && this.state.timerTime === 0 && (
                         <TouchableOpacity style={styles.button} onPress={this.startTimer}>
-                          <Text style={styles.buttonText}>break time</Text>
+                          <Text style={styles.buttonText}>Break time!</Text>
                         </TouchableOpacity> 
                       )}
                       {this.state.timerOn === true && (
                         <TouchableOpacity style={styles.button} onPress={this.stopTimer}>
-                          <Text style={styles.buttonText}>stop</Text>
+                          <Text style={styles.buttonText}>Stop</Text>
                         </TouchableOpacity>
                       )}
                   </View>
@@ -288,17 +290,17 @@ class Stopwatch extends Component {
                   }}>
                 {this.state.timerOn === false && (
                   <TouchableOpacity style={styles.button} onPress={this.startTimer}>
-                    <Text style={styles.buttonText}>resume</Text>
+                    <Text style={styles.buttonText}>Resume</Text>
                   </TouchableOpacity>
                   )}
                 {this.state.timerOn === false && (
                   <TouchableOpacity style={styles.button} onPress={this.resetTimer}>
-                    <Text style={styles.buttonText}>reset timer</Text>
+                    <Text style={styles.buttonText}>Reset Timer</Text>
                   </TouchableOpacity>
                   )}
                 {this.state.timerOn === false && (
                   <TouchableOpacity style={styles.button} onPress={this.handleDefault}>
-                    <Text style={styles.buttonText}>reset app</Text>
+                    <Text style={styles.buttonText}>Reset App</Text>
                   </TouchableOpacity>
                   )}
               </Animated.View>

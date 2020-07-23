@@ -4,7 +4,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     textLarge: {
       justifyContent: "center",
-      // marginTop: 15,
       fontFamily: "sans-serif",
       fontWeight: "bold",
       fontSize: 30,
@@ -17,7 +16,7 @@ export const styles = StyleSheet.create({
       fontSize: 15,
       color: "white"
     },
-    poop: {
+    clock: {
       fontSize: 30,
       backgroundColor: "transparent",
       textAlign: "center",
@@ -26,19 +25,19 @@ export const styles = StyleSheet.create({
 
 
     button: {
-      height: 15,
-      width: 200,
+      width: 250,
       margin: 5,
-      backgroundColor: "#be9b7b",
+      backgroundColor: "#4169E1",
       alignSelf: 'center',
       justifyContent: "center",
     },
     buttonText: {
-      color: "black",
+      color: "white",
       fontFamily: "sans-serif",
-      fontWeight: "bold",
-      fontSize: 40,
-      position: "relative"
+      // fontWeight: "bold",
+      fontSize: 20,
+      position: "relative",
+      textAlign: "center"
     },
 
     input: {
@@ -46,7 +45,7 @@ export const styles = StyleSheet.create({
       color: "white",
       borderRadius: 0,
       margin: 10,
-      textAlign: "center"
+      textAlign: "center",
     },
     TimerMain: {
       height: "100%",
