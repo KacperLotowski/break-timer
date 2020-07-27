@@ -186,14 +186,8 @@ class Stopwatch extends Component {
           <View style={styles.TimerMain}>
 {/* TOP          */}
             <View style={styles.TopTile}>
-                <Text style={styles.textLarge}>
-                  <Text style={{color: "grey"}}>Mo</Text>
-                  ney For No
-                  <Text style={{color: "orange"}}>thing</Text>
-                  </Text>
-                <Text style={{color: "orange"}}>{this.state.fxRate}</Text>
-
-
+                <Text style={styles.textLarge, styles.headline}>Money Break</Text>
+                {/* <Text style={{color: "orange"}}>{this.state.fxRate}</Text> */}
             </View>
 {/* MIDDLE          */}
             <View style={styles.MiddleTile}>
@@ -251,12 +245,12 @@ class Stopwatch extends Component {
                   </Text>
                   <View>
                       {this.state.timerOn === false && this.state.timerTime === 0 && (
-                        <TouchableOpacity style={styles.button} onPress={this.startTimer}>
+                        <TouchableOpacity style={styles.buttonMid} onPress={this.startTimer}>
                           <Text style={styles.buttonText}>Break time!</Text>
                         </TouchableOpacity> 
                       )}
                       {this.state.timerOn === true && (
-                        <TouchableOpacity style={styles.button} onPress={this.stopTimer}>
+                        <TouchableOpacity style={styles.buttonMid} onPress={this.stopTimer}>
                           <Text style={styles.buttonText}>Stop</Text>
                         </TouchableOpacity>
                       )}
@@ -289,17 +283,17 @@ class Stopwatch extends Component {
                   opacity: this.state.fadeCard3
                   }}>
                 {this.state.timerOn === false && (
-                  <TouchableOpacity style={styles.button} onPress={this.startTimer}>
+                  <TouchableOpacity style={styles.buttonLow} onPress={this.startTimer}>
                     <Text style={styles.buttonText}>Resume</Text>
                   </TouchableOpacity>
                   )}
                 {this.state.timerOn === false && (
-                  <TouchableOpacity style={styles.button} onPress={this.resetTimer}>
+                  <TouchableOpacity style={styles.buttonLow} onPress={this.resetTimer}>
                     <Text style={styles.buttonText}>Reset Timer</Text>
                   </TouchableOpacity>
                   )}
                 {this.state.timerOn === false && (
-                  <TouchableOpacity style={styles.button} onPress={this.handleDefault}>
+                  <TouchableOpacity style={styles.buttonLow} onPress={this.handleDefault}>
                     <Text style={styles.buttonText}>Reset App</Text>
                   </TouchableOpacity>
                   )}

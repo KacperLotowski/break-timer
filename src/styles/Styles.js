@@ -2,12 +2,19 @@ import { StyleSheet } from "react-native";
 
 
 export const styles = StyleSheet.create({
+    headline: {
+      fontSize: 35,
+      color: "black",
+      fontWeight: "bold",
+
+    },
     textLarge: {
-      justifyContent: "center",
+      width: "100%",
       fontFamily: "sans-serif",
       fontWeight: "bold",
       fontSize: 30,
-      color: "white"
+      color: "white",
+      textAlign: "center"
     },
     textSmall: {
       justifyContent: "center",
@@ -24,13 +31,24 @@ export const styles = StyleSheet.create({
     },
 
 
-    button: {
+    buttonMid: {
       width: 250,
+      height: 40,
       margin: 5,
-      backgroundColor: "#4169E1",
+      backgroundColor: "#20639B",
       alignSelf: 'center',
       justifyContent: "center",
     },
+
+    buttonLow: {
+      width: 250,
+      height: 40,
+      margin: 5,
+      backgroundColor: "#141115",
+      alignSelf: 'center',
+      justifyContent: "center",
+    },
+
     buttonText: {
       color: "white",
       fontFamily: "sans-serif",
@@ -49,26 +67,28 @@ export const styles = StyleSheet.create({
     },
     TimerMain: {
       height: "100%",
-      backgroundColor: "black",
+      backgroundColor: "#141115",
     },
     TopTile: {
       width: "100%",
       height: "33%",
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "black",
+      backgroundColor: "#FAC748"
     },
     MiddleTile: {
       // width: "100%",
       height: "34%",
       justifyContent: "center",
       alignItems: "center",
+      backgroundColor: "#141115",
+
     },
     BottomTile: {
       height: "33%",
       justifyContent: "center",
       alignContent: "center",
-      backgroundColor: "black",
+      backgroundColor: "#20639B",
     },
     UserInput: {
       alignItems: "center",
