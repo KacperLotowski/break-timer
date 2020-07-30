@@ -19,6 +19,7 @@ class Stopwatch extends Component {
       moveCard2: new Animated.Value(500),
       moveCard3: new Animated.Value(500),
       fxRate: "",
+      fontLoaded: false,
       isLoading: true
     };
   }

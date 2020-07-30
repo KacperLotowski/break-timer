@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
 
-
 export const styles = StyleSheet.create({
     headline: {
       fontSize: 35,
       color: "black",
       fontWeight: "bold",
-
+      fontFamily: "headline"
     },
     textLarge: {
       width: "100%",
