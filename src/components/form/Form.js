@@ -1,56 +1,76 @@
 import React from "react";
-import { Animated, Text, View, TextInput, TouchableOpacity } from "react-native";
-import { styles } from "../styles/Styles";
+import { Animated } from "react-native";
 
 export class Form extends React.Component {
   
-    render() {
-      return (
+  handleSubmit = () => {
+    this.setState({
+      timerStart: 0,
+      timerTime: 0,  
+    });
 
-        <Animated.View 
-            style={{
-            opacity: this.state.fadeCard1, 
-            transform: [{translateX: this.state.moveCard1}], 
-            position: "absolute"
-        }}>
-        <View style={styles.UserInput}>  
-        <TextInput 
-            style={{color: "white"}}
-            placeholder="Monthly $$$"
-            value={this.state.income} 
-            onChangeText={(text) => this.setState({income: text})}
-            keyboardType="numeric"
-            autoCompleteType="off"
-            autoCorrect={false}
-            spellCheck={false}
-            textAlign={'center'}
-        />
-        </View>
-        <View style={styles.UserInput}>
-        <TextInput
-            style={{ color: "white" }}
-            placeholder="Currency (eg. USD)"
-            value={this.state.currency}
-            onChangeText={(text) => this.setState({currency: text})}
-            autoCapitalize="characters"
-            autoCompleteType="off"
-            autoCorrect={false}
-            spellCheck={false}
-            maxLength={3}
-            minLength={3}
-            textAlign={'center'}
-        />
-        </View>
-        {this.state.currency !== "" && this.state.income !== "" && (
-        <TouchableOpacity onPress={this.handleSubmit}>
-            <Text style={styles.clock} role="clock" aria-label="clock">⏱️</Text>
-        </TouchableOpacity>
-        )}
-        </Animated.View> 
-      );
-    }
-  };
-  
-  export default Form;
+    // -------- API CALL --------
+    fetch("https://api.exchangeratesapi.io/latest?base=PLN")
+    .then((response) => response.json())
+    .then((json) => {
+      this.setState ({ fxRate: json.rates[this.state.currency].toFixed(2) });
+    })
+    .catch((error) => console.error(error))
+    .finally(() => {
+      this.setState({ isLoading: false });
+    });
+
+    Keyboard.dismiss();
+    Animated.timing(this.state.moveCard1, {
+      toValue: -500,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.moveCard2, {
+      toValue: 0,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.fadeCard1, {
+      toValue: 0,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.fadeCard2, {
+      toValue: 1,
+      duration: 1000
+    }).start();
+}
+
+  handleDefault = () => {
+    this.setState({
+      income: "",
+      currency: "",
+    });
+    Animated.timing(this.state.moveCard1, {
+      toValue: 0,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.moveCard2, {
+      toValue: 500,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.moveCard3, {
+      toValue: 500,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.fadeCard3, {
+      toValue: 0,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.fadeCard2, {
+      toValue: 0,
+      duration: 1000
+    }).start();
+    Animated.timing(this.state.fadeCard1, {
+      toValue: 1,
+      duration: 1000
+    }).start();
+  }
+}
+
+export default Form;
 
 
