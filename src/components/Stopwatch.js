@@ -187,7 +187,7 @@ class Stopwatch extends Component {
           <View style={styles.TimerMain}>
 {/* TOP          */}
             <View style={styles.TopTile}>
-                <Text style={styles.textLarge, styles.headline}>Money Break</Text>
+                <Text style={styles.headline}>Money Break</Text>
                 {/* <Text style={{color: "orange"}}>{this.state.fxRate}</Text> */}
             </View>
 {/* MIDDLE          */}
