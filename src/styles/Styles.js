@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     },
     textLarge: {
       width: "100%",
-      fontFamily: "sans-serif",
+      fontFamily: "sans-serif-light",
       fontWeight: "bold",
       fontSize: 30,
       color: "white",
