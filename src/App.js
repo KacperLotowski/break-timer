@@ -1,11 +1,14 @@
-import React from "react";
-import { View } from "react-native";
-import Stopwatch from "./components/Stopwatch.js";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { styles } from './styles/Styles';
+import Stopwatch from './components/Stopwatch.js';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
 
+
 export default class App extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +32,17 @@ export default class App extends React.Component {
       return (
         <View>
           <View>
-            <Stopwatch />
+            <View style={styles.TimerMain}>
+              <View style={styles.TopTile}>
+                <Text style={{
+                  fontSize: 35,
+                  color: 'black',
+                  fontWeight: 'bold',
+                  fontFamily: 'headline'                  
+                }}>Money Break</Text>
+              </View>
+              <Stopwatch />
+            </View>
           </View>
         </View>
       );
