@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { styles } from './styles/Styles';
-import Stopwatch from './components/Stopwatch.js';
+import { View } from 'react-native';
+import { styles } from './Styles/Styles';
+import TitleTile from './components/TitleTile/TitleTile.js';
+import Stopwatch from './components/Stopwatch/Stopwatch.js';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
@@ -33,14 +34,7 @@ export default class App extends React.Component {
         <View>
           <View>
             <View style={styles.TimerMain}>
-              <View style={styles.TopTile}>
-                <Text style={{
-                  fontSize: 35,
-                  color: 'black',
-                  fontWeight: 'bold',
-                  fontFamily: 'headline'                  
-                }}>Money Break</Text>
-              </View>
+              <TitleTile />
               <Stopwatch />
             </View>
           </View>

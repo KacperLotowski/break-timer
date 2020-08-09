@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Keyboard, Animated, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { styles } from '../styles/Styles';
+import { styles } from '../../Styles/Styles';
 
 class Stopwatch extends Component {
 
