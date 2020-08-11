@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
       color: 'white'
     },
 
-
     buttonMid: {
       width: 250,
       height: 40,
@@ -67,7 +66,7 @@ export const styles = StyleSheet.create({
     TimerMain: {
       height: '100%',
     },
-    TopTile: {
+    topTile: {
       width: '100%',
       height: '33%',
       justifyContent: 'center',

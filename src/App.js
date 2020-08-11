@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { styles } from './Styles/Styles';
-import TitleTile from './components/TitleTile/TitleTile.js';
-import Stopwatch from './components/Stopwatch/Stopwatch.js';
+import TitleTile from './components/TitleTile/TitleTile';
+import Stopwatch from './components/Stopwatch/Stopwatch';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
