@@ -32,7 +32,7 @@ class TitleTile extends React.Component {
                 fontSize: 35,
                 color: 'black',
                 fontWeight: 'bold',
-                fontFamily: 'headline'                 
+                fontFamily: 'headline'                
                 }}>Money Break</Text>
             </View>
       );

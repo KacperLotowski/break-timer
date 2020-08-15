@@ -32,11 +32,9 @@ export default class App extends React.Component {
     if (this.state.fontsLoaded) {
       return (
         <View>
-          <View>
-            <View style={styles.TimerMain}>
-              <TitleTile />
-              <Stopwatch />
-            </View>
+          <View style={styles.TimerMain}>
+            <TitleTile />
+            <Stopwatch />
           </View>
         </View>
       );
