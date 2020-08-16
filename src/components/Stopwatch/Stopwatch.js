@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Keyboard, Animated, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from '../../Styles/Styles';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 class Stopwatch extends Component {
 
@@ -122,6 +123,11 @@ class Stopwatch extends Component {
         .catch((error) => console.error(error))
         .finally(() => {
           this.setState({ isLoading: false });
+          // if (json.includes(this.state.currency)) {
+          //   console.log("good currency");
+          // } else {
+          //   console.log("wrong currency");
+          //   };
         });
 
         Keyboard.dismiss();
