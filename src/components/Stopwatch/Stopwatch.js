@@ -20,6 +20,8 @@ class Stopwatch extends Component {
       moveCard2: new Animated.Value(500),
       moveCard3: new Animated.Value(500),
       fxRate: '',
+      country: '',
+      bigMacPrice: '',
       fontLoaded: false,
       isLoading: true
     };
@@ -123,12 +125,20 @@ class Stopwatch extends Component {
         .catch((error) => console.error(error))
         .finally(() => {
           this.setState({ isLoading: false });
-          // if (json.includes(this.state.currency)) {
-          //   console.log("good currency");
-          // } else {
-          //   console.log("wrong currency");
-          //   };
         });
+
+
+        // let URL = `https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_${this.state.country}?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH`
+        fetch('https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_HUN?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH')
+        .then((response) => response.json())
+        .then((json) => { 
+          this.setState ({ bigMacPrice: json.[local_price] });
+        })
+        .catch((error) => console.error(error))
+        .finally(() => {
+          this.setState({ isLoading: false });
+        });
+
 
         Keyboard.dismiss();
         Animated.timing(this.state.moveCard1, {
@@ -194,15 +204,15 @@ class Stopwatch extends Component {
             <View style={styles.MiddleTile}>
 
               <Animated.View 
-                style={{
+                style={{ 
                   opacity: this.state.fadeCard1, 
                   transform: [{translateX: this.state.moveCard1}], 
                   position: 'absolute'
                   }}>
                 <View style={styles.UserInput}>  
                   <TextInput 
-                    style={{color: 'white'}}
-                    placeholder='Monthly $$$'
+                    style={{ color: 'white' }}
+                    placeholder={this.state.country}
                     value={this.state.income} 
                     onChangeText={(text) => this.setState({income: text})}
                     keyboardType='numeric'
@@ -210,22 +220,46 @@ class Stopwatch extends Component {
                     autoCorrect={false}
                     spellCheck={false}
                     textAlign={'center'}
+                    placeholderTextColor='#FFFFFF'
                   />
                 </View>
-                <View style={styles.UserInput}>
-                  <TextInput
-                    style={{ color: 'white' }}
-                    placeholder='Currency (eg. USD)'
+                <View style={{ zIndex: '1' }} >
+                  <DropDownPicker
+                    items={[
+                      { label: 'Poland|POL (PLN)', value: 'PLN' },
+                      { label: 'Hungary|HUN (HUF)', value: 'HUF' },
+                      { label: 'United States|USA (USD)', value: 'USD' },
+                      { label: 'EUR', value: 'EUR' },
+                    ]}
+                    placeholder='Choose currency'
+                    showArrow={false}
                     value={this.state.currency}
-                    onChangeText={(text) => this.setState({currency: text})}
-                    autoCapitalize='characters'
-                    autoCompleteType='off'
-                    autoCorrect={false}
-                    spellCheck={false}
-                    maxLength={3}
-                    minLength={3}
-                    textAlign={'center'}
-                  />
+                    onChangeItem={(item) => 
+                      this.setState({ currency: item.value, country: item.label.substring(item.label.length - 9, item.label.length - 6)})
+                    }
+                    containerStyle={{ 
+                      height: 30,
+                      width: 150,
+                      marginTop: 20,
+                    }}
+                    style={{ 
+                      borderTopLeftRadius: 0,
+                      borderTopRightRadius: 0,
+                      borderBottomLeftRadius: 0,
+                      borderBottomRightRadius: 0, 
+                    }}
+                    itemStyle={{ 
+                      justifyContent: 'center',
+                    }}
+                    dropDownStyle={{ 
+                      color: 'white',
+                    }}
+                    placeholderStyle={{
+                      textAlign: 'center'
+                  }}
+                    labelStyle={{
+                      textAlign: 'center'
+                  }} />
                 </View>
                   {this.state.currency !== '' && this.state.income !== '' && (
                   <TouchableOpacity onPress={this.handleSubmit}>
@@ -235,7 +269,7 @@ class Stopwatch extends Component {
               </Animated.View> 
                 
               <Animated.View 
-                style={{
+                style={{ 
                   opacity: this.state.fadeCard2, 
                   transform: [{translateX: this.state.moveCard2}], 
                   position: 'absolute', 
@@ -259,7 +293,7 @@ class Stopwatch extends Component {
               </Animated.View>
               
               <Animated.View 
-                style={{
+                style={{ 
                   opacity: this.state.fadeCard3,
                   transform: [{translateX: this.state.moveCard3}], 
                   position: 'absolute',
@@ -272,6 +306,7 @@ class Stopwatch extends Component {
                   <View style={{ alignItems: 'center' }}>
                     <Text style={styles.textSmall}>Which is</Text>
                     <Text style={styles.textSmall}>{(earned / this.state.fxRate).toFixed(2)} PLN</Text>
+                    <Text style={styles.textSmall}>{this.state.bigMacPrice}</Text>
                   </View>
                   )}
                 </View>
@@ -279,7 +314,7 @@ class Stopwatch extends Component {
             </View>
             <View style={styles.BottomTile}>
               <Animated.View 
-                style={{
+                style={{ 
                   opacity: this.state.fadeCard3
                   }}>
                 {this.state.timerOn === false && (

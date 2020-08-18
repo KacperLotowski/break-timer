@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     // },
     textLarge: {
       width: '100%',
-      fontFamily: 'sans-serif-light',
+      // fontFamily: 'sans-serif-light', <<<<<<< android only
       fontWeight: 'bold',
       fontSize: 30,
       color: 'white',
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     },
     textSmall: {
       justifyContent: 'center',
-      fontFamily: 'sans-serif-light',
+      // fontFamily: 'sans-serif-light', <<<<<<< android only
       fontWeight: '100',
       fontSize: 15,
       color: 'white'
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
 
     buttonText: {
       color: 'white',
-      fontFamily: 'sans-serif',
+      // fontFamily: 'sans-serif', <<<<<<< android only
       // fontWeight: 'bold',
       fontSize: 20,
       position: 'relative',
