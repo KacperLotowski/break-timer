@@ -127,7 +127,6 @@ class Stopwatch extends Component {
           this.setState({ isLoading: false });
         });
 
-
         // let URL = `https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_${this.state.country}?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH`
         fetch('https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_HUN?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH')
         .then((response) => response.json())
@@ -138,7 +137,6 @@ class Stopwatch extends Component {
         .finally(() => {
           this.setState({ isLoading: false });
         });
-
 
         Keyboard.dismiss();
         Animated.timing(this.state.moveCard1, {
