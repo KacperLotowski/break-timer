@@ -127,12 +127,12 @@ class Stopwatch extends Component {
           this.setState({ isLoading: false });
         });
 
-        // let URL = `https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_${this.state.country}?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH`
-        fetch('https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_HUN?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH')
+        let URL = 'https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_' + `${this.state.country}` + '?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH'
+        fetch(URL)
         .then((response) => response.json())
-        // .then((json) => { 
-        //   this.setState ({ bigMacPrice: json.[local_price] });
-        // })
+        .then((json) => { 
+          this.setState ({ bigMacPrice: json.local_price });
+        })
         .catch((error) => console.error(error))
         .finally(() => {
           this.setState({ isLoading: false });
@@ -304,7 +304,7 @@ class Stopwatch extends Component {
                   <View style={{ alignItems: 'center' }}>
                     <Text style={styles.textSmall}>Which is</Text>
                     <Text style={styles.textSmall}>{(earned / this.state.fxRate).toFixed(2)} PLN</Text>
-                    <Text style={styles.textSmall}>{this.state.bigMacPrice}</Text>
+                    <Text style={styles.textSmall}>or {this.state.bigMacPrice}</Text>
                   </View>
                   )}
                 </View>
