@@ -127,16 +127,13 @@ class Stopwatch extends Component {
           this.setState({ isLoading: false });
         });
 
-        let URL = 'https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_' + `${this.state.country}` + '?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH'
+        let URL = 'https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_POL?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH'
         fetch(URL)
         .then((response) => response.json())
         .then((json) => { 
-          this.setState ({ bigMacPrice: json.local_price });
+          this.setState ({ bigMacPrice: json.dataset.data[1] });
         })
         .catch((error) => console.error(error))
-        .finally(() => {
-          this.setState({ isLoading: false });
-        });
 
         Keyboard.dismiss();
         Animated.timing(this.state.moveCard1, {
@@ -229,7 +226,7 @@ class Stopwatch extends Component {
                       { label: 'United States|USA (USD)', value: 'USD' },
                       { label: 'EUR', value: 'EUR' },
                     ]}
-                    placeholder='Choose currency'
+                    placeholder={this.state.bigMacPrice}
                     showArrow={false}
                     value={this.state.currency}
                     onChangeItem={(item) => 
