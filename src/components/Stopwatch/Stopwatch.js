@@ -21,7 +21,7 @@ class Stopwatch extends Component {
       moveCard3: new Animated.Value(500),
       fxRate: '',
       country: '',
-      bigMacPrice: '',
+      bigMacPrice: 100,
       fontLoaded: false,
       isLoading: true
     };
@@ -117,7 +117,8 @@ class Stopwatch extends Component {
         });
 
         // -------- API CALL --------
-        fetch('https://api.exchangeratesapi.io/latest?base=PLN')
+        let fxURL = 'https://api.exchangeratesapi.io/latest?base=' + `${this.state.currency}`
+        fetch(fxURL)
         .then((response) => response.json())
         .then((json) => {
           this.setState ({ fxRate: json.rates[this.state.currency].toFixed(2) });
@@ -127,13 +128,13 @@ class Stopwatch extends Component {
           this.setState({ isLoading: false });
         });
 
-        let URL = 'https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_POL?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH'
+        let URL = 'https://www.quandl.com/api/v3/datasets/ECONOMIST/BIGMAC_' + `${this.state.country}` + '?start_date=2020-07-31&end_date=2020-07-31&api_key=G4sawzw2_RvmoVuDiZEH'
         fetch(URL)
         .then((response) => response.json())
         .then((json) => { 
-          this.setState ({ bigMacPrice: json.dataset.data[1] });
+          this.setState ({ bigMacPrice: json.dataset.data[0][1] });
         })
-        .catch((error) => console.error(error))
+        .catch((error) => console.error(error));
 
         Keyboard.dismiss();
         Animated.timing(this.state.moveCard1, {
@@ -192,6 +193,7 @@ class Stopwatch extends Component {
         let minutes = ('0' + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let hours = ('0' + Math.floor(timerTime / 3600000)).slice(-2);
         let earned = ((this.state.income/20/8*(hours)) + (this.state.income/20/8/60*(minutes)) + (this.state.income/20/8/60/60*(seconds))).toFixed(2);
+        let earnedBigMacs = (earned / this.state.bigMacPrice).toFixed(0);
 
         return (
 
@@ -226,7 +228,7 @@ class Stopwatch extends Component {
                       { label: 'United States|USA (USD)', value: 'USD' },
                       { label: 'EUR', value: 'EUR' },
                     ]}
-                    placeholder={this.state.bigMacPrice}
+                    placeholder='where do you live?'
                     showArrow={false}
                     value={this.state.currency}
                     onChangeItem={(item) => 
@@ -297,11 +299,13 @@ class Stopwatch extends Component {
                 <View style={{ alignItems: 'center' }}>
                   <Text style={styles.textSmall}>You've just earned</Text>
                   <Text style={styles.textLarge}>{earned} {this.state.currency}</Text>
-                  {this.state.currency === 'PLN' || (
+                  {this.state.currency === 'USD' || (
                   <View style={{ alignItems: 'center' }}>
                     <Text style={styles.textSmall}>Which is</Text>
-                    <Text style={styles.textSmall}>{(earned / this.state.fxRate).toFixed(2)} PLN</Text>
-                    <Text style={styles.textSmall}>or {this.state.bigMacPrice}</Text>
+                    <Text style={styles.textSmall}>{earned} USD</Text>
+                    {earnedBigMacs > 0 && (
+                      <Text style={styles.textSmall}>or {earnedBigMacs} Big Mac(s) 🍔</Text>
+                    )}
                   </View>
                   )}
                 </View>
