@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#141115',
-
+      zIndex: 1,
     },
     BottomTile: {
       height: '33%',
@@ -88,10 +88,11 @@ export const styles = StyleSheet.create({
       backgroundColor: '#20639B',
     },
     UserInput: {
+      width: 200,
       alignItems: 'center',
-      borderBottomColor: 'white',
+      margin: 20,
+      borderBottomColor: '#FAC748',
       borderBottomWidth: 0.5,
-      color: 'white',
     },
     StopwatchDisplay: {
       color: 'white'

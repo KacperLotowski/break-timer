@@ -29,11 +29,11 @@ class TitleTile extends React.Component {
           return (
                 <View style={styles.topTile}>
                 <Text style={{
-                fontSize: 35,
+                fontSize: 50,
                 color: 'black',
                 fontWeight: 'bold',
                 fontFamily: 'headline'                
-                }}>Money Break</Text>
+                }}>Lunch Break</Text>
             </View>
       );
     } else {
