@@ -312,7 +312,7 @@ class Stopwatch extends Component {
                   alignItems: 'center',
                   }}>
                 <View style={{ alignItems: 'center' }}>
-                  <Text style={styles.textSmall}>You've just earned</Text>
+                  <Text style={styles.textSmall}>You have just earned</Text>
                   <Text style={styles.textLarge}>{earned} {this.state.currency}</Text>
                   
                   {this.state.currency === 'USD' || (
