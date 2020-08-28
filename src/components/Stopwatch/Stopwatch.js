@@ -220,6 +220,26 @@ class Stopwatch extends Component {
                       { label: 'Hungary|HUN', value: 'HUF' },
                       { label: 'United States|USA', value: 'USD' },
                       { label: 'Euro Zone|EUR', value: 'EUR' },
+                      { label: 'Australia|AUS', value: 'AUD' },
+                      { label: 'Brazil|BRA', value: 'BRL' },
+                      { label: 'Canada|CAN', value: 'CAD' },
+                      { label: 'China|CHN', value: 'CNY' },
+                      { label: 'Denmark|DNK', value: 'DKK' },
+                      { label: 'Hong Kong|HKG', value: 'HKD' },
+                      { label: 'India|IND', value: 'INR' },
+                      { label: 'Indonesia|IDN', value: 'IDR' },
+                      { label: 'Israel|ISR', value: 'ILS' },
+                      { label: 'Japan|JPN', value: 'JPY' },
+                      { label: 'Malaysia|MYS', value: 'MYR' },
+                      { label: 'Mexico|MEX', value: 'MXN' },
+                      { label: 'New Zealand|NZL', value: 'NZD' },
+                      { label: 'Norway|NOR', value: 'NOK' },
+                      { label: 'Singapore|SIN', value: 'SGD' },
+                      { label: 'South Africa|ZAF', value: 'ZAR' },
+                      { label: 'Sweden|SWE', value: 'SEK' },
+                      { label: 'Switzerland|CHE', value: 'CHF' },
+                      { label: 'Thailand|THA', value: 'THB' },
+                      { label: 'Turkey|TUR', value: 'TRY' },
                     ]}
                     placeholder='where do you live?'
                     showArrow={false}
@@ -332,8 +352,6 @@ class Stopwatch extends Component {
                     </View> 
                   : console.log('no Big Mac')
                   }
-
-
                 </View>
               </Animated.View>
             </View>
