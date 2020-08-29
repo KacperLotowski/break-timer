@@ -239,7 +239,7 @@ class Stopwatch extends Component {
                       { label: 'Sweden|SWE', value: 'SEK' },
                       { label: 'Switzerland|CHE', value: 'CHF' },
                       { label: 'Thailand|THA', value: 'THB' },
-                      { label: 'Turkey|TUR', value: 'TRY' },
+                      { label: 'Turkey|TUR', value: 'TRY' }
                     ]}
                     placeholder='where do you live?'
                     showArrow={false}
@@ -289,7 +289,7 @@ class Stopwatch extends Component {
                     autoCorrect={false}
                     spellCheck={false}
                     textAlign={'center'}
-                    placeholderTextColor='#453712'
+                    placeholderTextColor='white'
                     fontSize='20'
                   />
                 </View>
