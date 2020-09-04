@@ -39,19 +39,19 @@ class Stopwatch extends Component {
         }, 1000);
         Animated.timing(this.state.moveCard3, {
           toValue: 500,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.moveCard2, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard3, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard2, {
           toValue: 1,
-          duration: 700
+          duration: 600
         }).start();
       };
     
@@ -62,19 +62,19 @@ class Stopwatch extends Component {
         clearInterval(this.timer);
         Animated.timing(this.state.moveCard2, {
           toValue: -500,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.moveCard3, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard2, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard3, {
           toValue: 1,
-          duration: 700
+          duration: 600
         }).start();
       };
 
@@ -85,27 +85,27 @@ class Stopwatch extends Component {
         });
         Animated.timing(this.state.moveCard1, {
           toValue: -500,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.moveCard2, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.moveCard3, {
           toValue: 500,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard3, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard2, {
           toValue: 1,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard1, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
       };
 
@@ -137,19 +137,19 @@ class Stopwatch extends Component {
         Keyboard.dismiss();
         Animated.timing(this.state.moveCard1, {
           toValue: -500,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.moveCard2, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard1, {
           toValue: 0,
-          duration: 700
+          duration: 600
         }).start();
         Animated.timing(this.state.fadeCard2, {
           toValue: 1,
-          duration: 700
+          duration: 600
         }).start();
     }
 
@@ -167,27 +167,27 @@ class Stopwatch extends Component {
         });
       Animated.timing(this.state.moveCard1, {
         toValue: 0,
-        duration: 700
+        duration: 600
       }).start();
       Animated.timing(this.state.moveCard2, {
         toValue: 500,
-        duration: 700
+        duration: 600
       }).start();
       Animated.timing(this.state.moveCard3, {
         toValue: 500,
-        duration: 700
+        duration: 600
       }).start();
       Animated.timing(this.state.fadeCard3, {
         toValue: 0,
-        duration: 700
+        duration: 600
       }).start();
       Animated.timing(this.state.fadeCard2, {
         toValue: 0,
-        duration: 700
+        duration: 600
       }).start();
       Animated.timing(this.state.fadeCard1, {
         toValue: 1,
-        duration: 700
+        duration: 600
       }).start();
     }
 
