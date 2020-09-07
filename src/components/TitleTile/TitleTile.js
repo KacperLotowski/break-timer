@@ -29,7 +29,7 @@ class TitleTile extends React.Component {
           return (
                 <View style={styles.topTile}>
                 <Text style={{
-                fontSize: 50,
+                fontSize: 60,
                 color: 'black',
                 fontWeight: 'bold',
                 fontFamily: 'headline'                
