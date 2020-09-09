@@ -32,8 +32,11 @@ class TitleTile extends React.Component {
                 fontSize: 60,
                 color: 'black',
                 fontWeight: 'bold',
-                fontFamily: 'headline'                
-                }}>Lunch Break</Text>
+                fontFamily: 'headline',
+                marginLeft: 50, 
+                }}>{`Lunch
+                Break`}
+                </Text>
             </View>
       );
     } else {

@@ -9,11 +9,12 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/media/logo 1.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/media/app-logo.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    
     },
     "updates": {
       "fallbackToCacheTimeout": 0

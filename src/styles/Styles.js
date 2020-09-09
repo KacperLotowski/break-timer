@@ -91,7 +91,7 @@ export const styles = StyleSheet.create({
       width: 200,
       alignItems: 'center',
       margin: 20,
-      borderBottomColor: '#FAC748',
+      borderBottomColor: '#fff',
       borderBottomWidth: 0.5,
     },
     StopwatchDisplay: {
