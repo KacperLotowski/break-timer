@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
       margin: 10,
       textAlign: 'center',
     },
-    TimerMain: {
+    timerMain: {
       height: '100%',
     },
     topTile: {
